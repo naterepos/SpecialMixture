@@ -22,7 +22,7 @@ public class MarriageCommands {
             }
             CorePlayer player = data.getArgument("player");
             SpecialMixture.plugin().getMarriages().propose(data.getSource().asCorePlayer(), player);
-            data.sendFeedback(Message.of("&aYou've proposed to " + player));
+            data.sendFeedback(Message.of("&aYou've proposed to " + player.getName()));
             player.sendMessage(Message.of("&d" + data.getSource().getName() + " has asked for your hand in marriage!\n&dUse /accept to accept their proposal"));
         });
     }
@@ -41,7 +41,7 @@ public class MarriageCommands {
     }
 
     public static CommandSpec getDivorce() {
-        return CommandSpec.spec("accept").executor(data -> {
+        return CommandSpec.spec("divorce").executor(data -> {
             if(data.isConsoleSource()) throw new ExecuteCommandException("&cOnly a player may use that command!");
             Optional<Marriage> marriageOpt = SpecialMixture.plugin().getMarriages().getMarriage(data.getSource().getUniqueId());
             if(marriageOpt.isEmpty()) throw new ExecuteCommandException("&cYou are not married!");
