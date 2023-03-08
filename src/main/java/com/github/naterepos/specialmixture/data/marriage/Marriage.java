@@ -21,7 +21,7 @@ public class Marriage {
     }
 
     public boolean contains(UUID person) {
-        return this.personB == person || this.personA == person;
+        return this.personB.equals(person) || this.personA.equals(person);
     }
 
     public CorePlayer getPersonA() {

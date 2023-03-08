@@ -47,10 +47,10 @@ public class HomeCommands {
             if(data.isConsoleSource()) throw new ExecuteCommandException("&cOnly a player may use that command!");
             HomeData homes = SpecialMixture.plugin().getHomes();
             Homes cached = homes.getHomes(data.getSource().getUniqueId());
-            Optional<Home> optHome = cached.getHome(data.getArgument("name"));
+            Optional<Home> optHome = cached.getPersonalHome(data.getArgument("name"));
             optHome.ifPresentOrElse(home -> {
                 cached.deleteHome(home);
-                data.sendFeedback(Message.of("&aSet home \"" + data.getArgument("name") + "\" to your location"));
+                data.sendFeedback(Message.of("&aDeleted home \"" + data.getArgument("name") + "\""));
             }, () -> data.sendFeedback(Message.of("&cThere are no homes by that name!")));
         });
     }

@@ -35,6 +35,15 @@ public class Homes {
         save();
     }
 
+    public Optional<Home> getPersonalHome(String id) {
+        for (Home home : homes) {
+            if(home.getName().equalsIgnoreCase(id)) {
+                return Optional.of(home);
+            }
+        }
+        return Optional.empty();
+    }
+
     public Optional<Home> getHome(String id) {
         Optional<Marriage> optMarriage = SpecialMixture.plugin().getMarriages().getMarriage(user);
         Set<Home> selection = null;

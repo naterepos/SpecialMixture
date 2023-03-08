@@ -35,8 +35,8 @@ public class MarriageCommands {
             CorePlayer other = CoreApi.get().getPlayer(otherPlayer.get());
             SpecialMixture.plugin().getMarriages().marry(data.getSource().asCorePlayer(), other);
 
-            data.sendFeedback(Message.of("&d&lBy the power vested in me by laws of my creator, I now pronounce you married!"));
-            other.sendMessage(Message.of("&d&lBy the power vested in me by laws of my creator, I now pronounce you married!"));
+            data.sendFeedback(Message.of("\n&d&lBy the power vested in me by laws of my creator, I now pronounce you &5&lmarried!"));
+            other.sendMessage(Message.of("\n&d&lBy the power vested in me by laws of my creator, I now pronounce you &5&lmarried!"));
         });
     }
 
